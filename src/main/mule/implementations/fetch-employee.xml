@@ -31,7 +31,7 @@ output application/json
     empname: "krishna",
     empstatus: "Active",
     emprole: "developer",
-    empsal: 58000
+    empsal: 57000
 }
 ]]]></ee:set-payload>
             </ee:message>
