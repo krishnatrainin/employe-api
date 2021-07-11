@@ -13,19 +13,26 @@ output application/json
 ---
 [
   {
-    empid: 100,
+    empid: 107,
     empname: "kittu",
     empstatus: "Active",
     emprole: "developer",
     empsal: 60000
   }, 
   {
-    empid: 100,
+    empid: 102,
     empname: "priya",
     empstatus: "Active",
     emprole: "developer",
     empsal: 65000
-  }
+  },
+{
+   empid: 108,
+    empname: "krishna",
+    empstatus: "Active",
+    emprole: "developer",
+    empsal: 58000
+}
 ]]]></ee:set-payload>
             </ee:message>
         </ee:transform>
