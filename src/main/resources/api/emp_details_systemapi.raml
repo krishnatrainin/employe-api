@@ -1,0 +1,130 @@
+#%RAML 1.0
+title: emp_details_systemapi
+description: This to post and retrive the employee details 
+version: v1
+protocols:
+  - HTTP
+mediaType: 
+- application/json
+baseUri: http://localhost:8081/empsapi/{version}
+
+uses:
+  common :  libraries/common-library.raml
+  
+
+/add-employee:
+  post:
+    is:
+      - common.commontraits
+    
+    body:
+      application/json:
+        type: common.commontypes 
+          
+        example: !include libraries/common/examples/post-addemp-examplefile.json
+                
+    responses:
+      201:
+        body:
+          application/json:
+            type: common.commomerrortype
+            example: !include libraries/addemp/examples/addemp-response-examplefile.json
+             
+      400:
+        body:
+          application/json:
+            type: common.commomerrortype
+            example: !include libraries/common/examples/400-response-examplefile.json
+              
+      500:
+        body:
+          application/json:
+            type: common.commomerrortype
+            example: !include libraries/common/examples/500-response-examplefile.json
+              
+        
+
+              
+/fetch-employee:
+  get:
+    is:
+      - common.commontraits
+    
+   
+    responses:
+      200:
+        body:
+          application/json:
+            type: common.commontypes
+            example: !include libraries/common/examples/post-addemp-examplefile.json
+
+      400:
+        body:
+          application/json:
+            type: common.commomerrortype
+            example: !include libraries/common/examples/400-response-examplefile.json
+             
+      500:
+        body:
+          application/json:
+            type: common.commomerrortype
+            example: !include libraries/common/examples/500-response-examplefile.json
+              
+  /{empid}:    
+    uriParameters:
+      empid:
+        type: integer
+        required: true
+    get:
+      is:
+        - common.commontraits
+      responses:
+        200:
+          body:
+            application/json:
+              type: common.commontypes
+              example: !include libraries/empid/examples/empid-response-examplefile.json
+                
+        400:
+          body:
+            application/json:
+              type: common.commomerrortype
+              example: !include libraries/common/examples/400-response-examplefile.json
+                
+        500:
+          body:
+            application/json:
+              type: common.commomerrortype
+              example: !include libraries/common/examples/500-response-examplefile.json
+                
+          
+
+              
+              
+                
+                    
+                      
+
+
+
+
+
+
+      
+
+
+    
+
+    
+  
+            
+              
+              
+            
+          
+     
+
+                
+          
+
+          

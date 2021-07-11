@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="fetch-employee-idFlow" doc:id="6a2b2a87-b066-47f4-9e9b-c66c5c15585f">
+        <logger level="INFO" doc:name="Logger" doc:id="bceadc43-b90e-4b31-8065-ebbdab2c4cd2" message="#[attributes.uriParams.empid]"/>
+		<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+[
+  {
+    empid: 100,
+    empname: "kittu",
+    empstatus: "Active",
+    emprole: "developer",
+    empsal: 60000
+  }
+]]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+ 
+	
+	</flow>
+</mule>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="fetch-employeeFlow" doc:id="55e433f5-a20e-43c6-a73a-a5b4c3a65a5b">
+	<logger level="INFO" doc:name="Entry Log" doc:id="dd639d15-8935-4672-ba8d-719f28e4b45b" message='#["flow has started"]'/>
+		<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+[
+  {
+    empid: 100,
+    empname: "kittu",
+    empstatus: "Active",
+    emprole: "developer",
+    empsal: 60000
+  }, 
+  {
+    empid: 100,
+    empname: "priya",
+    empstatus: "Active",
+    emprole: "developer",
+    empsal: 65000
+  }
+]]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+	
+	
+	
+	</flow>
+</mule>
